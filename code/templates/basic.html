@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+    <title>{{ doc_title }}</title>
+</head>
+<body>
+<h1>{{ doc_title }}</h1>
+<h2>{{ doc_author }}</h2>
+<h2>{{ doc_date }}</h2>
+<ul id="contents">Contents
+{% for item in contents %}
+<li><a href="{{ item.href }}">{{ item.name }}</a></li>
+{% endfor %}
+</ul>
+{% for item in contents %}
+{{ item.text }}
+{% endfor %}
+</body>
+</html>

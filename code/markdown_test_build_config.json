@@ -1,0 +1,27 @@
+[{
+    "document_name":"Generation 1.5 Laser Locker\nSystem Documentation",
+    "output_name":"Gen1p5Documentation",
+    "document_author":"Justin May",
+    "document_revision":"1.0",
+    "document_date":"2023-01-27",
+    "document_modified_date":"2023-01-27",
+    "useJinja":false,
+    "structure": 
+    [
+        "CommonPlatform/Gen1p5_doc.md"
+    ]
+},
+{
+    "document_name":"Generation 1 Laser Locker\nSystem Documentation",
+    "output_name":"Gen1Documentation",
+    "document_author":"Justin May",
+    "document_revision":"1.0",
+    "document_date":"2023-01-27",
+    "document_modified_date":"2023-01-27",
+    "useJinja":false,
+    "structure": 
+    [
+        "LaserTimingModules/SYSTEM/README.md"
+    ]
+}
+]

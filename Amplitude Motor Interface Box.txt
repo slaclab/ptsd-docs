@@ -1,0 +1,8 @@
+Amplitude Motor Interface Box
+
+Bill of Materials
+- Build from stock or order as needed
+
+Mechanical Assembly
+- This module should use a simple aluminum project box
+-- This should be added to the bill of materials

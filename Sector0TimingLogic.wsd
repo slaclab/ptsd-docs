@@ -1,0 +1,48 @@
+@startuml Laser Pulse Generation - Logic
+!pragma useVerticalIf on
+start
+if (S2-S0 RF PRL PLL locked?) then (no)
+    #pink:output time indeterminate;
+    detach
+elseif (laser configured for internal triggering?) then (yes)
+        #yellow:output time indeterminate wrt event system;
+        detach
+(no)elseif (initial laser operation state is nominal?) then (no)
+    #yellow:output state indeterminate;
+    detach
+(yes)elseif (laser oscillator is phase locked to RF (Lock Enabled)?) then (no)
+    if (trigger pattern generated) then (yes)
+        #yellow:laser output time random
+        - if trigger width less than 1.012 us (PP period), 
+        aperiodic output will be observed
+        -- Will depend primarily on thermal stability of oscillator
+        converting to phase drift;
+        detach
+    else (no)
+        #pink:no laser output;
+        detach
+    endif
+(yes)elseif (BCS AOM Chain A Efficiency is 5V?) then (no)
+    if (standby trigger operation allowed) then (yes)
+        :standby trigger logic;
+    else (no)
+        #pink:no laser output;
+        detach
+    endif
+(yes)elseif (MPS Beam Requirements Met?) then (no)
+    #pink:no laser output;
+    detach
+(yes)elseif (Valid Trigger Configuration Laoded?) then (no)
+    #pink:no laser output;
+    detach
+(yes)elseif (Laser Locker Operating) then (no)
+    #pink:no laser output;
+    detach
+else (yes)
+    #lightgreen:Laser Output Expected;
+endif
+
+
+
+
+@enduml

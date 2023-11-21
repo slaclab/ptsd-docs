@@ -1,0 +1,21 @@
+[
+
+    {
+        "document_name":"jinja test",
+        "output_name":"ModuleReference",
+        "document_author":"Justin May",
+        "document_revision":"1.0",
+        "document_date":"2023-02-01",
+        "document_modified_date":"2023-02-01 10:08:14",
+        "useJinja":true,
+        "structure": "basic.html",
+        "definitions":
+        [
+            {
+                "href":"ditm",
+                "name":"Digital Interface Module (DSP Module)",
+                "text":"LaserTimingModules/DITM_DigitalInterfaceModule/README.md"
+            }
+        ]
+    }
+]

@@ -1,0 +1,8 @@
+@startuml
+start
+:write new phase setpoint to 'Phase shift request' [OSC:LGUN:100:M:ATOP:ACORE:SM:phaseshiftrequest:St];
+:write 0x1 to 'Laser Repeating Sequence' [OSC:LGUN:100:M:ATOP:ACORE:SM:CMDreg:St];
+:write 0x2 to 'Laser Repeating Sequence' [..];
+:write 0x0 to 'Laser Repeating Sequence' [..];
+stop
+@enduml
