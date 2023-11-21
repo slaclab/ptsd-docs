@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="-163 347 721 187" width="721" height="187">
+  <defs/>
+  <g id="LSIT_Outputs" stroke="none" stroke-dasharray="none" fill="none" stroke-opacity="1" fill-opacity="1">
+    <title>LSIT Outputs</title>
+    <rect fill="white" x="-163" y="347" width="721" height="187"/>
+    <g id="LSIT_Outputs_Outputs_With_Reset">
+      <title>Outputs With Reset</title>
+      <g id="Graphic_4">
+        <rect x="-163" y="347" width="721" height="187" id="path"/>
+        <clipPath id="clip_path">
+          <use xl:href="#path"/>
+        </clipPath>
+        <g clip-path="url(#clip_path)">
+          <image xl:href="image3.pdf" width="721" height="187" transform="translate(-163 347)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

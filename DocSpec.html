@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Justin May" />
+  <title>ReadMe - Documentation Management for Precision Timing</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">ReadMe - Documentation Management for Precision Timing</h1>
+<p class="author">Justin May</p>
+<p class="date">2020-06-11 18:04:20</p>
+</header>
+<h1 id="readme---documentation-management-for-precision-timing">ReadMe - Documentation Management for Precision Timing</h1>
+<h4 id="version-v.1.0">Version : V.1.0</h4>
+<h4 id="author-justin-may">Author : Justin May</h4>
+<h4 id="initial-date-2020-06-11-180420">Initial Date : 2020-06-11 18:04:20</h4>
+<hr />
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metadata</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tags</td>
+<td>documentation, jinja, pandoc</td>
+</tr>
+<tr class="even">
+<td>Usage</td>
+<td>Internal Use, Guidance for Developing Equivalent Approaches</td>
+</tr>
+<tr class="odd">
+<td>ROU</td>
+<td>2021-06-1</td>
+</tr>
+<tr class="even">
+<td>Reviews</td>
+<td>This document is not a controlled document, and has no review procedure that involves signatories</td>
+</tr>
+</tbody>
+</table>
+<p>Documentation at SLAC represents a perpetual challenge. The composition, collection and management of effective documentation for the vast assortment of systems at SLAC represents a massive amount of work, and at the same time is difficult to do well. It is not a project that has an end point. It instead relies on the training and habits of employees to efficiently maintain documentation of their work both while it is in progress and while the resulting work is still in service at the laboratory. At the same time, it is often the critical piece that is missing when a system goes down; if you want to make a system long-term supportable in a way that minimizes hidden expense in terms of science and lost time, good documentation is a big part of achieving that.</p>
+<p>Good, persistent, accessible documentation is not a challenge unique to SLAC. Every industry and business practice to some extent faces the same challenges. Software development, in particular, inherits a great deal of subsystems that get incorporated into projects, often very quickly, such that documentation while in development can quickly be lost unless rigorous practices are applied. The transfer of design information in a mechanical engineering project can quickly distance the project from the design choices leading it, unless good practices are employed.</p>
+<p>In the precision timing group at SLAC, we’ve faced both these conventional challenges in software, electronic, mechanical and system engineering, but we have the additional challenge of having unique sets of information that are difficult to convey well with existing tools. One example is the description of timing events. We deal with picosecond to attosecond effects for which we still need to describe temporal relationships out to the microsecond or slower. This means we often need adaptive plots and diagrams that are not very easy to manage by hand.</p>
+<p>To address the needs of the precision timing program, we’ve defined a set of systems and protocols to assume for documentation that are intended to mitigate the management overhead of creating documentation (typically long after a system is complete and operational), while providing tools that reduce the amount of duplicate work that is needed to get this information in the right places.</p>
+<h1 id="documentation-types">Documentation Types</h1>
+<p>Documentation types fall into two primary categories so far. These are: 1. Flat File Documentation 2. Compiled Documentation</p>
+<h2 id="flat-file-documentation">Flat File Documentation</h2>
+<p>Flat file documentation is written in Markdown with a delivery target of Pandoc. The Pandoc library is generally consistent, and in general, no additional libraries or processors are needed for Markdown that is appropriate for documentation.</p>
+<p>To aid in writing, a snippets file for VSCode has been compiled for Markdown that will provide basic formatting for the core ReadMe file. The default ReadMe that is included in the provided template folder is based off of this snippet set (but will not have tab insertion points enabled like a snippet initially would).</p>
+<h2 id="compiled-documentation">Compiled Documentation</h2>
+<p>Compiled documentation is built in the sense of compiling code, but does not use code-centric build tools. We’ve settled on using the Jinja templating engine for building dynamic documentation sets that can then be processed using Pandoc as needed. After documentation is updated to the managed repositories, a process will convert the provided files in each directory that has had changes made to it, after which the updated documentation sources are pushed to specifically defined destinations. This output is also available to be pulled into other client systems as needed.</p>
+<p>When working with an assembled document, you are not required to use a specific template and data format. The default folder template includes both, but a given project will often need to support slightly different formatting, headers, cell types, etc.</p>
+<p>Approaches used here are similar to the process one would use to build documentation from a Jupyter notebook. If used, we’d suggest implementing a similar style of management.</p>
+<p>In general, flat file documentation should be sufficient for most applications. The case where a templated production process makes sense is when you are already working with a system that will provide easy production of the json files you will be populating the template from. Examples of this soft of system would be a python analysis using Pandas dataframes, crawling CAPTAR data for cable plants, generating test sets from criteria in spreadsheets, etc.</p>
+<h1 id="managing-documentation">Managing Documentation</h1>
+<h2 id="documentation-lifecycle">Documentation Lifecycle</h2>
+<p>Every source document generated should include a ROU (Retire or Update) date that represents a date when the documentation should be reviewed by the point of contact (author or inheritor) for up-to-date content and applicability. If the system involved is no longer active, then the documentation should be pruned from existing distributions and archived appropriately.</p>
+<h2 id="version-control">Version Control</h2>
+<p>Documentation is intended to be version controlled (currently in git). Therefore, large resources should not be included directly in the resources subdirectory. A standard git ignore file is included that will ignore common video formats and other large file types.</p>
+<p>If a documentation source is managed in a repository, if the documentation is determined to be a candidate for retirement, then the repository ReadMe should be modified to show that it is no longer active, though the repo can be left in place for archiving purposes.</p>
+<h2 id="metadata">Metadata</h2>
+<p>All documentation should include metadata (in the case of a templated file) or pseudo-metadata in the form of defined markdown-formatted introductions to documentation.</p>
+<h1 id="references">References</h1>
+<p>Pandoc and the markdown formatting it supports can be found here:</p>
+<p><a href="https://pandoc.org">Pandoc</a><br />
+<a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc and Markdown</a></p>
+<p>Jinja, including information on the installation and use of it and the Jinja templating language can be found here:</p>
+<p><a href="https://jinja.palletsprojects.com">Jinja</a></p>
+</body>
+</html>
